@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정책자금 광고 디자인 (경고형)</title>
+    <!-- Tailwind CSS CDN 로드 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 'Inter' 폰트 또는 기본 sans-serif 폰트 적용 */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* 텍스트 가독성을 위한 그림자 */
+        .text-shadow-strong {
+            text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        /* '이것'을 강조하기 위한 애니메이션 */
+        @keyframes pulse-intense {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: .8;
+                transform: scale(1.1);
+            }
+        }
+
+        .pulse-this {
+            animation: pulse-intense 1.5s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+
+    <!-- 정사각형 광고 컨테이너 -->
+    <!-- max-w-lg (512px)로 크기 제한, aspect-square로 1:1 비율 유지 -->
+    <div
+        class="w-full max-w-lg aspect-square bg-gray-900 text-white p-8 flex flex-col justify-between shadow-2xl overflow-hidden">
+
+        <!-- 상단 헤드라인 (경고) -->
+        <div class="text-center">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-shadow-strong">
+                정책자금,
+            </h1>
+            <!-- '이것' 강조 -->
+            <div class="my-3">
+                <span
+                    class="inline-block bg-yellow-400 text-gray-900 text-5xl sm:text-6xl font-extrabold px-6 py-3 transform -rotate-2 shadow-lg pulse-this">
+                    '이것'
+                </span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-bold text-shadow-strong">
+                부터 확인하지 않으면
+            </h2>
+            <!-- '무조건 탈락' 강조 -->
+            <div class="mt-4 bg-red-600 p-3 shadow-inner">
+                <span class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+                    무조건 탈락합니다.
+                </span>
+            </div>
+        </div>
+
+        <!-- 중간 내용 (27가지) -->
+        <div class="text-center my-4 bg-gray-800 p-4 border-2 border-dashed border-yellow-400">
+            <p class="text-lg sm:text-xl font-medium">
+                <span class="text-yellow-400 text-2xl sm:text-3xl font-extrabold">27가지 핵심 심사 포인트</span>
+                <br>
+                모르면 기회를 놓칠 수 있습니다.
+            </p>
+        </div>
+
+        <!-- 하단 CTA (Call to Action) -->
+        <div class="text-center">
+            <!-- '탈락하기 전'을 추가하여 긴급성 부여 -->
+            <div class="bg-white text-gray-900 p-4 transform scale-105 shadow-xl">
+                <span class="text-lg sm:text-xl font-bold block">탈락하기 전, 지금 바로!</span>
+                <!-- <span class="text-3xl sm:text-4xl font-extrabold text-blue-700 block mt-1">
+                    [무료 자가 진단]
+                </span> -->
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

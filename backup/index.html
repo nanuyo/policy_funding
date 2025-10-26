@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 소상공인 정책자금 - 최대 5억 원 지원</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            line-height: 1.7;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            padding: 120px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            color: #60a5fa;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 24px;
+            line-height: 1.3;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #cbd5e1;
+            margin-bottom: 40px;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            color: white;
+            padding: 18px 48px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.3);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 50px rgba(59, 130, 246, 0.4);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 100px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 16px;
+        }
+
+        .section-title p {
+            font-size: 18px;
+            color: #64748b;
+        }
+
+        .problem-section {
+            background: linear-gradient(to bottom, #f8fafc 0%, #ffffff 100%);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .problem-card {
+            background: white;
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-color: #3b82f6;
+        }
+
+        .problem-card .icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .problem-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+
+        .problem-card p {
+            color: #64748b;
+            font-size: 15px;
+        }
+
+        .qualification-section {
+            background: #0f172a;
+            color: white;
+        }
+
+        .qualification-section .section-title h2 {
+            color: white;
+        }
+
+        .qualification-section .section-title p {
+            color: #94a3b8;
+        }
+
+        .qualification-boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .qual-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .qual-box h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: #60a5fa;
+        }
+
+        .qual-box .criteria {
+            background: rgba(59, 130, 246, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .qual-box ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .qual-box li {
+            padding: 12px 0;
+            padding-left: 28px;
+            position: relative;
+            color: #cbd5e1;
+        }
+
+        .qual-box li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: 700;
+        }
+
+        .funds-section {
+            background: white;
+        }
+
+        .funds-grid {
+            display: grid;
+            gap: 24px;
+        }
+
+        .fund-category {
+            background: #f8fafc;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .fund-category h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #3b82f6;
+        }
+
+        .fund-items {
+            display: grid;
+            gap: 16px;
+        }
+
+        .fund-item {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            display: grid;
+            grid-template-columns: 2fr 1fr 3fr;
+            gap: 20px;
+            align-items: start;
+            transition: all 0.3s ease;
+        }
+
+        .fund-item:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+        }
+
+        .fund-item h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .fund-amount {
+            color: #3b82f6;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .fund-desc {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .testimonial-section {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            color: white;
+        }
+
+        .testimonial-section .section-title h2,
+        .testimonial-section .section-title p {
+            color: white;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 36px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .testimonial-card .quote {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .testimonial-card .author {
+            font-weight: 700;
+            color: white;
+        }
+
+        .cta-section {
+            background: #0f172a;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 42px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            color: #94a3b8;
+            margin-bottom: 40px;
+        }
+
+        .form-box {
+            max-width: 600px;
+            margin: 40px auto 0;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            color: #cbd5e1;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #64748b;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+        }
+
+        .faq-section {
+            background: white;
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: #f8fafc;
+            padding: 28px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .faq-item h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+
+        .faq-item p {
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+
+            .qualification-boxes,
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .fund-item {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">2025년 1월 신규 발표</div>
+            <h1>소상공인 정책자금<br><span class="highlight">최대 5억 원</span> 지원받으세요</h1>
+            <p>불안한 경기, 현금이 최고의 무기입니다.<br>지금 바로 신청 가능한 정부 지원금 총정리</p>
+            <a href="#contact" class="cta-primary">무료 1차 상담 신청하기 →</a>
+        </div>
+    </section>
+
+    <section class="section problem-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>혹시 사장님도 이런 고민 중이신가요?</h2>
+                <p>많은 사장님들이 비슷한 문제로 밤잠을 설치고 있습니다</p>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="icon">💰</div>
+                    <h3>고정비 부담</h3>
+                    <p>매달 돌아오는 직원 월급, 재료비, 임대료 등 고정 비용에 허덕이고 있습니다.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon">📉</div>
+                    <h3>매출 감소</h3>
+                    <p>장사는 예전 같지 않고 매출은 줄어 자금 압박이 날이 갈수록 심해집니다.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon">📄</div>
+                    <h3>복잡한 서류</h3>
+                    <p>정부 지원금을 신청하려니 서류가 산더미 같고 용어도 너무 복잡합니다.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon">⚠️</div>
+                    <h3>까다로운 조건</h3>
+                    <p>조건이 까다로워 몇 번 시도해봤지만, 결국 시간만 낭비하고 포기했습니다.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon">📊</div>
+                    <h3>고금리 대출</h3>
+                    <p>당장 급해서 받은 10% 이상 고금리 대출... 이것은 '비용'이 아니라 '누수'입니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section qualification-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>신청 자격 확인</h2>
+                <p>딱 2가지만 확인하시면 됩니다</p>
+            </div>
+            <div class="qualification-boxes">
+                <div class="qual-box">
+                    <h3>기준 1: 직원 수</h3>
+                    <div class="criteria">
+                        <strong>상시 근로자 수 5인 미만</strong><br>
+                        (제조업·건설업·운수업: 10인 미만)
+                    </div>
+                    <ul>
+                        <li>대표자 본인, 등기부등본상 임원 제외</li>
+                        <li>대표자의 배우자 및 직계존비속(가족) 제외</li>
+                        <li>주 15시간 또는 월 60시간 미만 단기 근로자 제외</li>
+                    </ul>
+                </div>
+                <div class="qual-box">
+                    <h3>기준 2: 제외 대상</h3>
+                    <div class="criteria">
+                        <strong>다음 항목에 해당하지 않으면 신청 가능</strong>
+                    </div>
+                    <ul>
+                        <li>국세 또는 지방세 체납 사실이 없음</li>
+                        <li>금융기관 대출 원금이나 이자 연체 없음</li>
+                        <li>현재 휴업 또는 폐업 상태가 아님</li>
+                        <li>유흥·향락 업종이 아님</li>
+                        <li>최근 6개월 이내 동일 기관 자금 수혜 이력 없음</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section funds-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>사장님께 맞는 자금을 찾아보세요</h2>
+                <p>다양한 정책자금 중 최적의 선택을 도와드립니다</p>
+            </div>
+            <div class="funds-grid">
+                <div class="fund-category">
+                    <h3>💼 기본 경영 자금</h3>
+                    <div class="fund-items">
+                        <div class="fund-item">
+                            <div>
+                                <h4>일반 경영안정자금</h4>
+                            </div>
+                            <div class="fund-amount">최대 7천만원</div>
+                            <div class="fund-desc">가장 보편적으로 활용되는 기본 자금으로 모든 소상공인 대상</div>
+                        </div>
+                        <div class="fund-item">
+                            <div>
+                                <h4>긴급경영안정자금</h4>
+                            </div>
+                            <div class="fund-amount">최대 1억원</div>
+                            <div class="fund-desc">화재, 홍수 등 자연재해 피해 기업 대상 긴급 지원</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fund-category">
+                    <h3>🎯 특별 상황 대상 자금</h3>
+                    <div class="fund-items">
+                        <div class="fund-item">
+                            <div>
+                                <h4>저신용 소상공인 자금</h4>
+                            </div>
+                            <div class="fund-amount">최대 3천만원</div>
+                            <div class="fund-desc">신용점수 839점 이하 저신용자 특별 지원 (빠른 소진 주의!)</div>
+                        </div>
+                        <div class="fund-item">
+                            <div>
+                                <h4>재도전 특별자금</h4>
+                            </div>
+                            <div class="fund-amount">별도 책정</div>
+                            <div class="fund-desc">폐업 후 재창업한 소상공인을 위한 재기 지원금</div>
+                        </div>
+                        <div class="fund-item">
+                            <div>
+                                <h4>대환대출</h4>
+                            </div>
+                            <div class="fund-amount">별도 책정</div>
+                            <div class="fund-desc">8% 이상 고금리를 5%대 저금리로 전환</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fund-category">
+                    <h3>🚀 성장 촉진 자금</h3>
+                    <div class="fund-items">
+                        <div class="fund-item">
+                            <div>
+                                <h4>혁신성장 촉진자금</h4>
+                            </div>
+                            <div class="fund-amount">최대 10억원</div>
+                            <div class="fund-desc">수출 실적, 2년 연속 매출 10% 증가 등 우수 기업 대상</div>
+                        </div>
+                        <div class="fund-item">
+                            <div>
+                                <h4>청년고용 연계자금</h4>
+                            </div>
+                            <div class="fund-amount">최대 7천만원</div>
+                            <div class="fund-desc">만 39세 이하 대표 또는 청년 직원 다수 고용 기업</div>
+                        </div>
+                        <div class="fund-item">
+                            <div>
+                                <h4>소공인 특화자금</h4>
+                            </div>
+                            <div class="fund-amount">최대 5억원</div>
+                            <div class="fund-desc">제조업 운영 기업 대상 최대 한도 지원</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fund-category">
+                    <h3>⭐ 프리미엄 자금</h3>
+                    <div class="fund-items">
+                        <div class="fund-item">
+                            <div>
+                                <h4>민간투자 연계형 매칭융자</h4>
+                            </div>
+                            <div class="fund-amount">최대 5억원</div>
+                            <div class="fund-desc">VC, 엔젤투자 유치 기업 대상 (전문가 컨설팅 필수)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section testimonial-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>이미 많은 사장님들이 성공했습니다</h2>
+                <p>실제 성공 사례를 확인해보세요</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="quote">
+                        "음식점을 운영하면서 고금리 대출로 힘들었는데, 정책자금 7천만 원을 받아 큰 도움이 되었습니다. 혼자서는 엄두도 못 냈을 일인데 전문가 도움으로 가능했습니다."
+                    </div>
+                    <div class="author">- 서울 ○○동 음식점 대표</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote">
+                        "12% 고금리 대출을 5%대로 전환해서 매달 수십만 원씩 이자를 아끼게 되었습니다. 그 돈으로 직원 월급도 올려주고 새로운 재료도 구입할 수 있게 됐어요."
+                    </div>
+                    <div class="author">- 경기 ○○시 미용실 대표</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote">
+                        "폐업 후 재창업했는데 재도전 특별자금으로 다시 시작할 수 있었습니다. 정부가 두 번째 기회를 주는 것에 정말 감사했고, 이번엔 더 단단하게 준비해서 성공하고 있습니다."
+                    </div>
+                    <div class="author">- 인천 ○○구 치킨집 대표</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="cta-section">
+        <div class="container">
+            <h2>지금 바로 시작하세요</h2>
+            <p>1월 6일부터 신청 시작! 준비된 사람이 기회를 잡습니다</p>
+
+            <div class="form-box">
+                <form id="consultForm">
+                    <div class="form-group">
+                        <label>이름 *</label>
+                        <input type="text" name="name" placeholder="홍길동" required>
+                    </div>
+                    <div class="form-group">
+                        <label>연락처 *</label>
+                        <input type="tel" name="phone" placeholder="010-0000-0000" required>
+                    </div>
+                    <div class="form-group">
+                        <label>업종</label>
+                        <input type="text" name="business" placeholder="예: 음식점, 미용실, 제조업">
+                    </div>
+                    <div class="form-group">
+                        <label>간단한 문의 내용</label>
+                        <textarea name="message" placeholder="현재 상황이나 궁금하신 점을 자유롭게 작성해주세요"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">무료 상담 신청하기</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="section faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>자주 묻는 질문</h2>
+                <p>사장님들이 가장 많이 궁금해하시는 내용입니다</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h4>Q. 저 같은 작은 식당도 정말 신청이 가능한가요?</h4>
+                    <p>네, 물론 가능합니다. 소상공인 정책자금은 음식점, 미용실, 판매점 등 대부분의 소상공인 업종을 대상으로 합니다. 직원 수 5인 미만(제조업 등은 10인 미만)이고 기본적인
+                        조건에 문제가 없다면 충분히 가능성이 있습니다.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Q. 상담은 어떻게 진행되나요? 부담스럽지 않을까요?</h4>
+                    <p>전혀 부담 갖지 않으셔도 됩니다. 위 양식을 통해 문의를 남겨주시면, 전문 팀이 배정되어 사장님의 상황에 맞춰 성심성의껏 친절하게 상담해 드립니다. 1차 상담은 100%
+                        무료이며 단순 문의도 환영합니다.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Q. 과거에 대출을 받았는데 또 받을 수 있나요?</h4>
+                    <p>최근 6개월 이내 동일 기관의 자금을 받지 않았다면 가능합니다. 다만 과거 수혜 이력이 3회 이상인 경우 제한이 있을 수 있으나, 재도전 특별자금이나 긴급경영 안정자금은
+                        예외가 적용될 수 있으므로 전문가와 상담이 필요합니다.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Q.

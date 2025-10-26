@@ -3,215 +3,1820 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>K-기업컨설팅 | 대표님을 위한 최적의 정책자금 솔루션</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <title>2025년 소상공인 정책자금 - 무료 상담</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Noto Sans KR', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background: linear-gradient(to bottom, #f8fafc, #ffffff);
+            word-break: keep-all;
         }
-       .hero-gradient {
-            background: linear-gradient(to right, #ffffff 50%, #f0f5ff 50%);
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
         }
-        @media (max-width: 768px) {
-           .hero-gradient {
-                background: #f0f5ff;
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            color: #2563eb;
+        }
+
+        .logo-text h1 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #1e293b;
+        }
+
+        .logo-text p {
+            font-size: 0.75rem;
+            color: #64748b;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, #1d4ed8, rgba(59, 130, 246, 0.2));
+            color: white;
+            background-size: 200% 200%;
+        }
+
+        .btn-primary:hover {
+            background-position: right center;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #2563eb;
+        }
+
+        .btn-lg {
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+        }
+
+        .header-btn {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .header-btn {
+                display: flex;
             }
         }
-       .cta-button {
+
+        /* Hero Section */
+        .hero {
+            padding: 2rem 0 4rem;
+        }
+
+        .hero-grid {
+            display: grid;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                padding: 6rem 0;
+            }
+            .hero-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #dbeafe;
+            color: #1d4ed8;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .text-blue {
+            color: #2563eb;
+        }
+
+        .hero-text {
+            font-size: 1.125rem;
+            color: #64748b;
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            align-items: center;
+        }
+
+        @media (min-width: 640px) {
+            .hero-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+
+        .animated-border-wrapper {
+            position: relative;
+            padding: 2px;
+            border-radius: 9999px;
+            overflow: hidden;
+            background: #2563eb; /* 애니메이션 미지원 환경을 위한 기본 배경 */
+        }
+
+        .animated-border-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200%; /* 그라데이션이 잘리지 않도록 충분히 크게 */
+            height: 200%;
+            z-index: 0;
+            background: conic-gradient(
+                from 0deg,
+                #89f7fe, #66a6ff, #89f7fe, #ffc371, #ff5f6d, #89f7fe
+            );
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            -webkit-animation: rotate-border 4s linear infinite;
+            animation: rotate-border 4s linear infinite;
+        }
+        .animated-border-wrapper .btn {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            justify-content: center;
+        }
+
+        @-webkit-keyframes rotate-border {
+            0% {
+                -webkit-transform: translate(-50%, -50%) rotate(0deg);
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+                -webkit-transform: translate(-50%, -50%) rotate(360deg);
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        @keyframes rotate-border {
+            0% {
+                -webkit-transform: translate(-50%, -50%) rotate(0deg);
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+                -webkit-transform: translate(-50%, -50%) rotate(360deg);
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        .hero-features {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.875rem;
+            color: #64748b;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feature-item-full {
+            flex-basis: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        @media (min-width: 768px) {
+            .hero-features {
+                justify-content: flex-start;
+            }
+        }
+        @media (min-width: 768px) {
+            .feature-item-full {
+                flex-basis: auto;
+            }
+        }
+
+        .check-icon {
+            color: #16a34a;
+        }
+
+        .hero-image-container {
+            position: relative;
+        }
+
+        .hero-image {
+            width: 100%;
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        /* Stats Section */
+        .stats {
+            background: white;
+            padding: 4rem 0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+        @media (min-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        .stat-item p {
+            font-size: 1.125rem;
+            color: #64748b;
+            margin-bottom: 0.5rem;
+        }
+        .stat-item .number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #2563eb;
+        }
+        .stat-item .unit {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2563eb;
+            margin-left: 0.25rem;
+        }
+
+
+        /* Features Section */
+        .features {
+            background: #f8fafc;
+            padding: 4rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h3 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: #64748b;
+            max-width: 42rem;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (min-width: 768px) {
+            .features-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .features-grid-4 {
+             display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (min-width: 768px) {
+            .features-grid-4 {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .card {
+            background: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .icon-blue { background: #dbeafe; color: #2563eb; }
+        .icon-green { background: #dcfce7; color: #16a34a; }
+        .icon-purple { background: #f3e8ff; color: #9333ea; }
+        .icon-orange { background: #fed7aa; color: #ea580c; }
+        .icon-red { background: #fee2e2; color: #ef4444; }
+        .icon-yellow { background: #fef9c3; color: #f59e0b; }
+
+        .card h4 {
+            font-size: 1.125rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 4rem 0;
+        }
+
+        .process-grid {
+            display: grid;
+            gap: 1.5rem;
+            max-width: 80rem;
+            margin: 0 auto;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (min-width: 768px) {
+            .process-grid {
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+
+        .process-item {
+            text-align: center;
+        }
+
+        .process-number {
+            width: 4rem;
+            height: 4rem;
+            background-color: #2563eb;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+            transition: all 0.3s;
+        }
+        
+        .process-item:hover .process-number {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+        }
+        
+        .process-number-red {
+            background-color: #ef4444; /* red-500 */
+        }
+
+        .process-title {
+            font-size: 1.125rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .process-desc {
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+
+        /* Consultation Section */
+        #consultation-section {
+            scroll-margin-top: 5rem;
+        }
+        .consultation {
+            background: #2563eb;
+            padding: 4rem 0;
+            color: white;
+        }
+
+        .consultation-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .consultation-header h3 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .consultation-header p {
+            color: #bfdbfe;
+            font-size: 1.125rem;
+        }
+
+        /* Multi-step Form */
+        .form-card {
+            background: #2563eb;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .progress-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .progress-step {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .progress-step.completed {
+            background: #334155;
+            border-color: #334155;
+        }
+
+        .progress-step.active {
+            background: #3b82f6;
+            border-color: #3b82f6;
+        }
+
+        .progress-line {
+            width: 64px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: block;
+        }
+
+        .form-title {
+            font-size: 1.875rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .form-subtitle {
+            font-size: 1.125rem;
+        }
+
+        .options-grid {
+            display: grid;
+            gap: 1rem;
+            max-width: 48rem;
+            margin: 0 auto 2rem;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .option-btn {
+            height: 80px;
+            font-size: 1.25rem;
+            border: 2px solid white;
+            border-radius: 1rem;
+            background: transparent;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .option-btn:hover {
+            background: white;
+            color: #2563eb;
+        }
+
+        .option-btn.selected {
+            background: white;
+            color: #2563eb;
+        }
+
+        .form-input {
+            width: 100%;
+            height: 64px;
+            padding: 1rem;
+            font-size: 1.125rem;
+            background: transparent;
+            border: 2px solid white;
+            border-radius: 1rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding-top: 1rem;
+        }
+
+        .checkbox {
+            width: 24px;
+            height: 24px;
+            border-radius: 0.25rem;
+            border: 2px solid white;
+            background: #1e293b;
+            cursor: pointer;
+        }
+
+        .form-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 48rem;
+            margin: 2rem auto 0;
+        }
+
+        .form-buttons .btn {
+            flex: 1;
+            padding: 1.5rem 2rem;
+            font-size: 1.25rem;
+            border-radius: 9999px;
+            font-weight: bold;
+            justify-content: center;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #2563eb;
+        }
+
+        .btn-submit {
+            background: #60a5fa;
+            color: #1e3a8a;
+        }
+
+        .btn-submit:hover {
+            background: #93c5fd;
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-submit:disabled:hover {
+            background: #60a5fa; /* 비활성화 시 호버 효과 제거 */
+            color: #1e3a8a;
+        }
+
+        .completion-screen {
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .completion-screen h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 4rem 0;
+        }
+
+        .faq-list {
+            max-width: 48rem;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .faq-list {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+
+        .faq-item h4 {
+            font-size: 1.125rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-item p {
+            color: #64748b;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #0f172a;
+            color: white;
+            padding: 2rem 0;
+        }
+
+        .contact-grid > div:first-child {
+            text-align: center; /* Centers h3 and p.contact-text */
+        }
+
+        .contact-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .contact h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .contact-text {
+            color: #cbd5e1;
+            margin-bottom: 0.5rem; /* Reduced margin */
+            font-size: 0.75rem; /* Smaller font size for business reg number */
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem; /* Reduced gap for line spacing */
+            align-items: center; /* Center aligns contact items */
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem; /* Slightly reduced gap between icon and text */
+        }
+
+        .contact-item span {
+            font-size: 0.7rem; /* Very small font size for phone/email */
+            line-height: 1.2; /* Adjust line height if needed */
+        }
+
+        .contact-icon {
+            color: #60a5fa;
+            width: 16px; /* Smaller icon */
+            height: 16px;
+        }
+
+        .hours h4 {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .hours p {
+            color: #cbd5e1;
+            margin-bottom: 0.5rem;
+        }
+
+        .hours .highlight {
+            color: #60a5fa;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #020617;
+            color: #94a3b8;
+            padding: 1.25rem 0;
+            text-align: center;
+            font-size: 0.75rem;
+        }
+
+        footer .footer-office-name {
+            font-size: 0.625rem; /* 10px */
+        }
+
+        /* Mobile Floating Button */
+        .mobile-float-btn {
+            display: block;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            background: linear-gradient(to top, white, white, rgba(255, 255, 255, 0));
+            z-index: 50;
+        }
+
+        .mobile-float-btn .btn {
+            width: 100%;
+            padding: 0.75rem 1.5rem;
+            font-size: 1.125rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            justify-content: center;
+            -webkit-animation: pulse 2.5s infinite cubic-bezier(0.4, 0, 0.6, 1);
+            animation: pulse 2.5s infinite cubic-bezier(0.4, 0, 0.6, 1);
             transition: all 0.3s ease;
         }
-       .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
+        @media (min-width: 768px) {
+            .mobile-float-btn {
+                display: none;
+            }
         }
-       .section-title {
-            font-weight: 900;
-            font-size: 2.5rem;
-            line-height: 1.3;
+
+        .hidden {
+            display: none;
         }
-       .section-subtitle {
+
+        /* Privacy Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            max-width: 90vw;
+            max-height: 90vh;
+            width: 600px;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1e293b;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #64748b;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            transition: all 0.2s;
+        }
+
+        .modal-close:hover {
+            background: #f1f5f9;
+            color: #1e293b;
+        }
+
+        .modal-body {
+            color: #475569;
+            line-height: 1.7;
+        }
+
+        .modal-body h3 {
             font-size: 1.125rem;
-            color: #4a5568;
+            font-weight: bold;
+            color: #1e293b;
+            margin: 1.5rem 0 0.75rem 0;
         }
+
+        .modal-body h3:first-child {
+            margin-top: 0;
+        }
+
+        .modal-body p {
+            margin-bottom: 1rem;
+        }
+
+        .modal-body ul {
+            margin: 0.75rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .modal-body li {
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-footer {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .btn-close-modal {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-close-modal:hover {
+            background: #1d4ed8;
+        }
+
+        /* Count Animation Styles */
+        .count-animation {
+            transition: all 0.3s ease;
+        }
+
+        .stat-item .number {
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item.animate .number {
+            animation: countUp 2s ease-out forwards;
+        }
+
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @-webkit-keyframes pulse {
+            0%, 100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.2);
+            }
+            50% {
+                -webkit-transform: scale(1.02);
+                transform: scale(1.02);
+                box-shadow: 0 15px 25px -5px rgba(37, 99, 235, 0.3);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.2);
+            }
+            50% {
+                -webkit-transform: scale(1.02);
+                transform: scale(1.02);
+                box-shadow: 0 15px 25px -5px rgba(37, 99, 235, 0.3);
+            }
+        }
+
+    /* Mobile Form Optimization */
+    @media (max-width: 767px) {
+        .consultation {
+            padding: 1.5rem 0; /* 전체 섹션 상하 여백 축소 */
+        }
+        .form-card {
+            padding: 1.5rem; /* 폼 카드 내부 여백 조정 */
+        }
+        .progress-bar {
+            margin-bottom: 1.5rem; /* 진행률 표시줄 하단 여백 축소 */
+        }
+        .progress-step {
+            width: 36px; /* 진행률 단계 원 크기 축소 */
+            height: 36px;
+            font-size: 0.875rem;
+        }
+        .progress-line {
+            width: 40px; /* 진행률 단계 사이 선 길이 축소 */
+        }
+        .form-title {
+            font-size: 1.25rem; /* 제목 글자 크기 축소 */
+            margin-bottom: 1rem; /* 제목 하단 여백 축소 */
+        }
+        .form-subtitle {
+            font-size: 0.875rem; /* 부제목 글자 크기 축소 */
+        }
+        .options-grid {
+            gap: 0.75rem; /* 선택 버튼 사이 간격 축소 */
+            margin-bottom: 1.5rem;
+        }
+        .option-btn {
+            height: 60px; /* 선택 버튼 높이 축소 */
+            font-size: 0.9rem; /* 선택 버튼 글자 크기 축소 */
+            border-radius: 0.75rem;
+        }
+        .form-input {
+            height: 56px; /* 이름/연락처 입력 필드 높이 축소 */
+            font-size: 1rem;
+        }
+        .form-buttons .btn {
+            padding: 0.875rem 1.25rem; /* 이전/다음 버튼 크기 축소 */
+            font-size: 1rem;
+        }
+    }
     </style>
 </head>
-<body class="bg-white text-gray-800">
-
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold text-blue-800">K-기업컨설팅</div>
-            <a href="#contact-form" class="cta-button bg-blue-700 text-white font-bold py-2 px-6 rounded-full hover:bg-blue-800">
-                무료 상담 신청
-            </a>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <svg class="logo-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path>
+                    </svg>
+                    <div class="logo-text">
+                        <h1>중소기업경영발전지원센터</h1>
+                        <p>소상공인 정책자금 컨설팅</p>
+                    </div>
+                </div>
+                <button class="btn btn-primary btn-lg header-btn" onclick="scrollToConsultation()">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+                    </svg>
+                    무료 상담 신청하기
+                </button>
+            </div>
         </div>
     </header>
 
-    <section class="hero-gradient">
-        <div class="container mx-auto px-6 py-16 md:py-24 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
-                <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
-                    수백 가지 정책자금,<br>
-                    <span class="text-blue-700">대표님 회사에 맞는 자금</span>은 따로 있습니다.
-                </h1>
-                <p class="mt-6 text-lg text-gray-600">
-                    복잡한 서류, 까다로운 심사, 높은 경쟁률...<br>
-                    시간 낭비 없이 전문가가 최적의 솔루션을 찾아드립니다.
-                </p>
-                <a href="#contact-form" class="cta-button inline-block mt-8 bg-blue-700 text-white font-bold text-xl py-4 px-10 rounded-lg hover:bg-blue-800">
-                    1분 만에 무료 상담 신청하기
-                </a>
-            </div>
-            <div class="md:w-1/2 flex justify-center">
-                <div class="w-full max-w-sm rounded-lg overflow-hidden shadow-2xl">
-                    <img src="https://i.imgur.com/8z8dF8d.png" alt="신뢰감 있는 30대 남성 컨설턴트" class="w-full h-full object-cover">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="section-title text-gray-900">대표님, 혹시 이런 고민 하고 계신가요?</h2>
-            <p class="section-subtitle mt-4 max-w-3xl mx-auto">정책자금, 정보의 비대칭이 성패를 가릅니다. 혼자서 준비하면 놓치는 것들이 너무 많습니다.</p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                <div class="bg-gray-50 p-8 rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold mb-2">"어떤 자금을 받아야 할지 모르겠습니다."</h3>
-                    <p class="text-gray-600">수백 가지가 넘는 자금 중 우리 회사 조건에 맞는 최적의 자금을 찾기 어렵습니다.</p>
-                </div>
-                <div class="bg-gray-50 p-8 rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold mb-2">"서류 준비가 너무 복잡하고 어렵습니다."</h3>
-                    <p class="text-gray-600">수십 장의 사업계획서와 증빙 서류, 작은 실수 하나로 부결될 수 있습니다.</p>
-                </div>
-                <div class="bg-gray-50 p-8 rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold mb-2">"몇 번이나 신청했지만 계속 탈락합니다."</h3>
-                    <p class="text-gray-600">탈락의 원인도 모른 채 시간과 노력만 낭비하고 있을 가능성이 높습니다.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 bg-gray-100">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="section-title text-gray-900">결과로 증명합니다. 이것이 전문가의 차이입니다.</h2>
-            <p class="section-subtitle mt-4 max-w-3xl mx-auto">단순 자금 조달을 넘어, 기업의 재무 가치를 극대화하는 맞춤형 컨설팅을 제공합니다.</p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                <div class="bg-white p-8 rounded-lg shadow-lg text-left">
-                    <span class="text-sm font-bold text-blue-600 bg-blue-100 py-1 px-3 rounded-full">의류 쇼핑몰 A사</span>
-                    <h3 class="text-3xl font-bold my-3">총 7.9억 원 조달 성공</h3>
-                    <p class="text-gray-600 mb-4">신보, 재단, 중진공 자금을 복합적으로 활용하여 운전자금과 시설자금을 성공적으로 확보했습니다.</p>
-                    <div class="border-t pt-4">
-                        <p class="font-semibold text-green-600">+ 공장 매입 취득세 75% 절감 효과</p>
-                    </div>
-                </div>
-                <div class="bg-white p-8 rounded-lg shadow-lg text-left">
-                    <span class="text-sm font-bold text-blue-600 bg-blue-100 py-1 px-3 rounded-full">소프트웨어 개발 B사</span>
-                    <h3 class="text-3xl font-bold my-3">총 4.3억 원 조달 성공</h3>
-                    <p class="text-gray-600 mb-4">기업부설연구소 설립 지원을 통해 기술력을 인정받고, 신보와 중진공에서 높은 한도를 승인받았습니다.</p>
-                    <div class="border-t pt-4">
-                        <p class="font-semibold text-green-600">+ 법인세 2천만 원 추가 공제</p>
-                    </div>
-                </div>
-                <div class="bg-white p-8 rounded-lg shadow-lg text-left">
-                    <span class="text-sm font-bold text-blue-600 bg-blue-100 py-1 px-3 rounded-full">플랫폼 개발 C사</span>
-                    <h3 class="text-3xl font-bold my-3">총 10.6억 원 조달 성공</h3>
-                    <p class="text-gray-600 mb-4">3년간의 고용 계획과 연계하여, 청년디지털 및 특별고용촉진지원금을 최대로 활용했습니다.</p>
-                    <div class="border-t pt-4">
-                        <p class="font-semibold text-green-600">+ 3년간 약 25억 원 고용지원금 확보</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="section-title text-gray-900">단 4단계로, 가장 빠르고 확실하게</h2>
-            <p class="section-subtitle mt-4 max-w-3xl mx-auto">대표님은 사업에만 집중하세요. 복잡한 과정은 저희가 책임지겠습니다.</p>
-            <div class="mt-12 relative">
-                <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-200"></div>
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
-                    <div class="text-center">
-                        <div class="w-16 h-16 mx-auto bg-blue-600 text-white text-2xl font-bold rounded-full flex items-center justify-center">1</div>
-                        <h3 class="mt-4 text-xl font-bold">무료 상담 신청</h3>
-                        <p class="mt-2 text-gray-600">1분이면 충분합니다. 간편 신청서만 작성해주세요.</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 mx-auto bg-blue-600 text-white text-2xl font-bold rounded-full flex items-center justify-center">2</div>
-                        <h3 class="mt-4 text-xl font-bold">기업 현황 정밀 진단</h3>
-                        <p class="mt-2 text-gray-600">전문 컨설턴트가 재무 상태와 필요 자금을 분석합니다.</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 mx-auto bg-blue-600 text-white text-2xl font-bold rounded-full flex items-center justify-center">3</div>
-                        <h3 class="mt-4 text-xl font-bold">최적 자금 매칭 및 서류 준비</h3>
-                        <p class="mt-2 text-gray-600">가장 유리한 자금을 선택하고 완벽한 서류를 준비합니다.</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 mx-auto bg-blue-600 text-white text-2xl font-bold rounded-full flex items-center justify-center">4</div>
-                        <h3 class="mt-4 text-xl font-bold">승인 및 사후 관리</h3>
-                        <p class="mt-2 text-gray-600">자금 실행 이후에도 지속적인 경영 자문을 제공합니다.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact-form" class="py-20 bg-blue-800 text-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="section-title">골든타임을 놓치지 마세요</h2>
-            <p class="section-subtitle mt-4 max-w-3xl mx-auto text-blue-200">정책자금은 예산 소진 시 조기 마감될 수 있습니다. 지금 바로 가능성을 확인해보세요.</p>
-            <div class="mt-12 max-w-2xl mx-auto">
-                <div class="bg-white text-gray-800 p-8 rounded-lg shadow-2xl">
-                    <form>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="name" class="text-left block text-sm font-medium text-gray-700">대표님 성함</label>
-                                <input type="text" id="name" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="홍길동">
-                            </div>
-                            <div>
-                                <label for="company" class="text-left block text-sm font-medium text-gray-700">회사명</label>
-                                <input type="text" id="company" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="(주)한국기업">
-                            </div>
-                            <div class="md:col-span-2">
-                                <label for="phone" class="text-left block text-sm font-medium text-gray-700">연락처</label>
-                                <input type="tel" id="phone" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="010-1234-5678">
-                            </div>
-                            <div class="md:col-span-2">
-                                <label for="inquiry" class="text-left block text-sm font-medium text-gray-700">문의 내용 (선택)</label>
-                                <textarea id="inquiry" rows="3" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="필요 자금, 사업 분야 등을 간단히 적어주시면 더 빠른 상담이 가능합니다."></textarea>
-                            </div>
-                        </div>
-                        <div class="mt-6">
-                            <button type="submit" class="cta-button w-full bg-blue-700 text-white font-bold text-xl py-4 px-10 rounded-lg hover:bg-blue-800">
-                                전문가에게 무료 상담 신청하기
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div style="text-align: center;">
+                    <span class="badge">2025년 소상공인 정책자금</span>
+                    <h2>“직원 5인 미만”<br><span class="text-blue">최대 2억 원</span></h2>
+                    <p class="hero-text">몰라서 못 받는 지원금, 이제는 놓치지 마세요.</p>
+                    <div class="hero-buttons">
+                        <div class="animated-border-wrapper">
+                            <button class="btn btn-primary" onclick="scrollToConsultation()" style="padding: 0.75rem 1.5rem; border-radius: 9999px;">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+                                </svg>
+                                무료 상담으로 바로 확인하기
                             </button>
                         </div>
-                        <p class="mt-4 text-xs text-gray-500">
-                            ※ 제출된 정보는 상담 목적으로만 사용되며, 안전하게 보호됩니다. 저희는 어떠한 명목으로도 수수료를 선요구하지 않습니다.
-                        </p>
-                    </form>
+                    </div>
+                    <div class="hero-features">
+                        <div class="feature-item">
+                            <svg class="check-icon" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>상담 소요 30초</span>
+                        </div>
+                        <div class="feature-item">
+                            <svg class="check-icon" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>비용 0원</span>
+                        </div>
+                        <div class="feature-item feature-item-full">
+                            <svg class="check-icon" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>전문가 직접 연락</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image-container">
+                    <img src="/professional-korean-lawyer-in-suit.jpg" alt="소상공인 정책자금 컨설팅" class="hero-image">
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-gray-900 text-gray-400">
-        <div class="container mx-auto px-6 py-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <h3 class="text-xl font-bold text-white">K-기업컨설팅</h3>
-                    <p class="text-sm mt-1">대표: OOO | 사업자등록번호: 123-45-67890</p>
-                    <p class="text-sm">주소: 서울특별시 강남구 테헤란로 123, 14층</p>
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item" data-target="2025">
+                    <p>최신 정보</p>
+                    <div>
+                        <span class="number">0</span><span class="unit">년</span>
+                    </div>
                 </div>
-                <div>
-                    <p>Tel: 1599-6907 | Email: help@k-consulting.co.kr</p>
-                    <p class="text-sm mt-1 text-right">© 2024 K-기업컨설팅. All Rights Reserved.</p>
+                <div class="stat-item" data-target="1">
+                    <p>공식 컨설팅</p>
+                    <div>
+                        <span class="number">0</span><span class="unit">위</span>
+                    </div>
+                </div>
+                <div class="stat-item" data-target="3">
+                    <p>승인율 상승</p>
+                    <div>
+                        <span class="number">0</span><span class="unit">배</span>
+                    </div>
+                </div>
+                <div class="stat-item" data-target="100">
+                    <p>무료 상담</p>
+                    <div>
+                        <span class="number">0</span><span class="unit">%</span>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="features" style="background: white;">
+        <div class="container">
+            <div class="section-header">
+                <h3>요즘 장사, <span class="text-blue">버티는 게</span> 일입니다.</h3>
+                <p>월급·임대료·세금… 다 나가는데 들어오는 건 줄어듭니다. 정책자금은 "조건 좋은 저금리 대출"입니다. 단지 몰라서 못 받은 것뿐이에요.</p>
+            </div>
+            <div class="features-grid">
+                <div class="card">
+                    <div class="card-icon icon-blue">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 16l3 3 3-3"/><path d="M10 16l-3 3-3-3"/><path d="M3 7h18"/><path d="M12 2v12"/><path d="M5 7l1 9.5c.06.6.54 1 1.14 1h9.72c.6 0 1.08-.4 1.14-1L19 7"/></svg>
+                    </div>
+                    <h4>매출은 줄고</h4>
+                    <p>경기는 어려워지고 손님은 줄어드는데 나갈 돈은 그대로입니다.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon icon-blue">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h4>대출이자는 10% 넘고</h4>
+                    <p>기존 대출 이자 부담은 점점 커져만 가고 한숨만 나옵니다.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon icon-blue">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    </div>
+                    <h4>정부지원금은 복잡해서 포기</h4>
+                    <p>나라에서 준다는 돈은 많다는데, 뭐가 뭔지 너무 복잡해서 포기했습니다.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon icon-green">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22,4 12,14.01 9,11.01"></polyline></svg>
+                    </div>
+                    <h4>하지만, 받을 수 있습니다</h4>
+                    <p>사장님도 정책자금을 받을 수 있습니다. 복잡한 절차, 전문가가 대신합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h3>복잡한 절차, 전문가가 대신합니다</h3>
+                <p>지금 바로 받을 수 있는 자금이 있는지 무료로 진단해드립니다.</p>
+            </div>
+            <div class="features-grid-4">
+                <div class="card">
+                    <div class="card-icon icon-blue">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h4>직원 5인 미만 가능</h4>
+                    <p>상시 근로자 5인 미만 사업장이라면 누구나 신청 가능합니다.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon icon-green">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h4>모든 업종 대상</h4>
+                    <p>음식점, 미용실, 도소매, 서비스업 등 업종에 상관없이 모두 대상입니다.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon icon-purple">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h4>저신용/폐업 이력 가능</h4>
+                    <p>신용이 낮거나 폐업 이력이 있어도 가능한 자금이 있습니다.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon icon-orange">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h4>최대 1억, 저금리</h4>
+                    <p>최대 1억 원 한도, 최저 연 2~3%대 금리로 자금을 확보할 수 있습니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <div class="section-header">
+                <h3>대표 정책자금 예시</h3>
+                <p>사장님의 상황에 맞는 다양한 자금이 준비되어 있습니다.</p>
+            </div>
+            <div class="process-grid">
+                <!-- <div class="process-item">
+                    <div class="process-number">1</div>
+                    <h4 class="process-title">무료 상담</h4>
+                    <p class="process-desc">전화/방문 상담</p>
+                </div> -->
+                <div class="process-item">
+                    <div class="process-number">1</div>
+                    <h4 class="process-title">일반 경영 안정자금</h4>
+                    <p class="process-desc">모든 소상공인 대상, 최대 7천만 원</p>
+                </div>
+                <div class="process-item">
+                    <div class="process-number">2</div>
+                    <h4 class="process-title">저신용 소상공인 자금</h4>
+                    <p class="process-desc">신용 839점 이하, 최대 3천만 원</p>
+                </div>
+                <div class="process-item">
+                    <div class="process-number process-number-red">3</div>
+                    <h4 class="process-title">재도전 특별자금</h4>
+                    <p class="process-desc">폐업/회생 이력 보유자 대상</p>
+                </div>
+                <div class="process-item">
+                    <div class="process-number">4</div>
+                    <h4 class="process-title">대환 자금</h4>
+                    <p class="process-desc">8% 이상 고금리 대출 전환</p>
+                </div>
+                <div class="process-item">
+                    <div class="process-number">5</div>
+                    <h4 class="process-title">혁신 성장 자금</h4>
+                    <p class="process-desc">온라인/스마트 도입 기업, 최대 1억 원</p>
+                </div>
+                <div class="process-item">
+                    <div class="process-number">6</div>
+                    <h4 class="process-title">신청 시작</h4>
+                    <p class="process-desc">1월 6일부터 공식 신청 시작!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation Form Section -->
+    <section id="consultation-section" class="consultation">
+        <div class="container">
+            <div style="max-width: 64rem; margin: 0 auto;">
+                <!-- <div class="consultation-header">
+                    <h3>“이번엔 꼭 받고 싶다”는 생각이 든다면</h3>
+                    <p>지금 바로 아래에서 무료 상담 신청하세요.</p>
+                </div>
+                 -->
+                <!-- Multi-step Form -->
+                <div class="form-card" id="consultationForm">
+                    <!-- Progress Bar -->
+                    <div class="progress-bar" id="progressBar"></div>
+
+                    <!-- Step 1: Debt Amount -->
+                    <div class="form-step active" data-step="1">
+                        <h2 class="form-title">업종을 선택해주세요.</h2>
+                        <div class="options-grid">
+                            <button class="option-btn" data-field="businessType" data-value="제조업">제조업</button>
+                            <button class="option-btn" data-field="businessType" data-value="도소매업">도소매업</button>
+                            <button class="option-btn" data-field="businessType" data-value="요식업">요식업</button>
+                            <button class="option-btn" data-field="businessType" data-value="서비스업">서비스업</button>
+                            <button class="option-btn" data-field="businessType" data-value="기타">기타</button>
+                        </div>
+                        <div class="form-buttons">
+                            <button class="btn btn-submit next-btn" onclick="nextStep()" disabled>다음</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Monthly Income -->
+                    <div class="form-step" data-step="2">
+                        <h2 class="form-title">필요 자금을 선택해주세요.</h2>
+                        <div class="options-grid">
+                            <button class="option-btn" data-field="fundingAmount" data-value="5천만원 이하">5천만원 이하</button>
+                            <button class="option-btn" data-field="fundingAmount" data-value="5천만원 - 1억원">5천만원 - 1억원</button>
+                            <button class="option-btn" data-field="fundingAmount" data-value="1억원 이상">1억원 이상</button>
+                        </div>
+                        <div class="form-buttons">
+                            <button class="btn btn-secondary prev-btn" onclick="previousStep()">이전</button>
+                            <button class="btn btn-submit next-btn" onclick="nextStep()" disabled>다음</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3: Property -->
+                    <div class="form-step" data-step="3">
+                        <h2 class="form-title">통화 가능 시간을 선택해주세요.</h2>
+                        <div class="options-grid">
+                            <button class="option-btn" data-field="consultationTime" data-value="평일 오전">평일 오전</button>
+                            <button class="option-btn" data-field="consultationTime" data-value="평일 오후">평일 오후</button>
+                            <button class="option-btn" data-field="consultationTime" data-value="주말 가능">주말 가능</button>
+                            <button class="option-btn" data-field="consultationTime" data-value="주말 불가능">주말 불가능</button>
+                        </div>
+                        <div class="form-buttons">
+                            <button class="btn btn-secondary prev-btn" onclick="previousStep()">이전</button>
+                            <button class="btn btn-submit next-btn" onclick="nextStep()" disabled>다음</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4: Contact Info -->
+                    <div class="form-step" data-step="4">
+                        <h2 class="form-title">
+                            무료 1차 상담 신청하기
+                        </h2>
+                        <div style="max-width: 48rem; margin: 0 auto;">
+                            <input type="text" class="form-input" id="companyNameInput" placeholder="업체명 (선택사항)">
+                            <input type="text" class="form-input" id="nameInput" placeholder="이름 입력">
+                            <input type="tel" class="form-input" id="phoneInput" placeholder="연락처 입력 ('-' 없이)">
+                            <div class="checkbox-container">
+                                <input type="checkbox" class="checkbox" id="privacyCheckbox">
+                                <label for="privacyCheckbox">개인정보 활용 동의(필수) <a href="#" onclick="openPrivacyModal(); return false;" style="text-decoration: underline; color: white;">보기</a></label>
+                            </div>
+                        </div>
+                        <div class="form-buttons">
+                            <button class="btn btn-secondary prev-btn" onclick="previousStep()">이전</button>
+                            <button class="btn btn-submit" id="submitBtn" onclick="submitForm()">무료 상담 신청하기</button>
+                        </div>
+                    </div>
+
+                    <!-- Completion Screen -->
+                    <div class="form-step" data-step="5">
+                        <div class="completion-screen">
+                            <h2>상담 신청이<br class="mobile-only">완료되었습니다.</h2>
+                            <h3>▶ 전문가가 확인 후 직접 연락드릴 예정입니다.</h3>
+                            <button class="btn btn-submit" style="max-width: 48rem; width: 100%; justify-content: center;" onclick="resetForm()">홈으로 돌아가기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h3>자주 묻는 질문</h3>
+            </div>
+            <div class="faq-list">
+                <div class="card faq-item">
+                    <h4>“12% 고금리 대출 7천만 원을 5% 저금리로 바꾸고 숨통이 트였습니다.”</h4>
+                    <p>— 치킨집 사장 김OO</p>
+                </div>
+                <div class="card faq-item">
+                    <h4>“서류가 너무 어려워서 포기했었는데 전문가 도움으로 1억 정책자금 받았어요.”</h4>
+                    <p>— 미용실 대표 박OO</p>
+                </div>
+                <div class="card faq-item">
+                    <h4>이건 특별한 사람의 이야기가 아닙니다.</h4>
+                    <p>바로 우리 주변 사장님들의 이야기입니다.</p>
+                </div>
+                <div class="card faq-item">
+                    <h4>신청은 빠를수록 유리합니다.</h4>
+                    <p>정부 예산은 한정되어 있고, 1월 6일부터 공식 신청이 시작됩니다!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div>
+                    <h3>중소기업경영발전지원센터</h3> <!-- This will be centered by .contact-grid > div:first-child -->
+                    <p class="contact-text">사업자등록번호: 864-21-02620</p> <!-- This will be centered by .contact-grid > div:first-child -->
+                    <div class="contact-info">
+                        <!-- <div class="contact-item">
+                            <svg class="contact-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            <span>1844-1803</span> 
+                        </div> -->
+                        <!-- <div class="contact-item">
+                            <svg class="contact-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            <span>mvg1844.1803@gmail.com</span> 
+                        </div> -->
+                        <!-- <div class="contact-item">
+                            <svg class="contact-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span>대전광역시 서구 둔산동 1405 메트로폴리스 405</span>
+                        </div> -->
+                    </div>
+                </div>
+                <!-- <div class="hours">
+                    <h4>상담 시간</h4>
+                    <p>평일: 오전 9시 - 오후 6시 | 사업자등록번호: 217-03-49354</p>
+                    <p>토요일: 오전 10시 - 오후 2시</p>
+                    <p>일요일/공휴일: 휴무</p>
+                    <p class="highlight">* 긴급 상담은 24시간 가능합니다</p>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 <span class="footer-office-name">중소기업경영발전지원센터</span>. All rights reserved.</p>
         </div>
     </footer>
 
+    <!-- Mobile Floating Button -->
+    <div class="mobile-float-btn">
+        <button class="btn btn-primary" onclick="scrollToConsultation()">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+            </svg>
+            정책자금 무료 상담 받기
+        </button>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">개인정보처리방침</h2>
+                <button class="modal-close" onclick="closePrivacyModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h3>1. 개인정보의 처리목적</h3>
+                <p>중소기업경영발전지원센터는 다음의 목적을 위하여 개인정보를 처리합니다. 처리하고 있는 개인정보는 다음의 목적 이외의 용도로는 이용되지 않으며, 이용 목적이 변경되는 경우에는 개인정보보호법 제18조에 따라 별도의 동의를 받는 등 필요한 조치를 이행할 예정입니다.</p>
+                <ul>
+                    <li>개인회생/파산 상담 및 법무서비스 제공</li>
+                    <li>고객 문의사항 응대 및 상담</li>
+                    <li>서비스 제공에 따른 본인확인, 개인 식별</li>
+                    <li>고지사항 전달, 불만처리 등을 위한 원활한 의사소통 경로의 확보</li>
+                </ul>
+
+                <h3>2. 개인정보의 처리 및 보유기간</h3>
+                <p>개인정보는 원칙적으로 개인정보의 처리목적이 달성되면 지체없이 파기합니다. 단, 다음의 정보에 대해서는 아래의 이유로 명시한 기간 동안 보존합니다.</p>
+                <ul>
+                    <li>상담 기록: 상담 완료 후 3년</li>
+                    <li>법무서비스 관련 기록: 서비스 완료 후 5년</li>
+                    <li>계약 또는 청약철회 등에 관한 기록: 5년</li>
+                </ul>
+
+                <h3>3. 처리하는 개인정보의 항목</h3>
+                <p>개인정보 처리업무를 위하여 다음과 같은 개인정보를 처리하고 있습니다.</p>
+                <ul>
+                    <li>필수항목: 성명, 연락처(전화번호)</li>
+                    <li>선택항목: 이메일 주소, 주소</li>
+                    <li>자동수집항목: IP주소, 쿠키, MAC주소, 서비스 이용기록, 방문기록, 불량 이용기록 등</li>
+                </ul>
+
+                <h3>4. 개인정보의 제3자 제공</h3>
+                <p>중소기업경영발전지원센터는 개인정보를 제1조(개인정보의 처리목적)에서 명시한 범위 내에서만 처리하며, 정보주체의 동의, 법률의 특별한 규정 등 개인정보보호법 제17조 및 제18조에 해당하는 경우에만 개인정보를 제3자에게 제공합니다.</p>
+
+                <h3>5. 개인정보처리의 위탁</h3>
+                <p>중소기업경영발전지원센터는 원활한 개인정보 업무처리를 위하여 다음과 같이 개인정보 처리업무를 위탁하고 있습니다.</p>
+                <ul>
+                    <li>위탁받는 자: 개인정보 처리업무 위탁업체</li>
+                    <li>위탁하는 업무의 내용: 개인정보 처리업무</li>
+                </ul>
+
+                <h3>6. 정보주체의 권리·의무 및 행사방법</h3>
+                <p>정보주체는 중소기업경영발전지원센터에 대해 언제든지 다음 각 호의 개인정보 보호 관련 권리를 행사할 수 있습니다.</p>
+                <ul>
+                    <li>개인정보 처리현황 통지요구</li>
+                    <li>개인정보 열람요구</li>
+                    <li>개인정보 정정·삭제요구</li>
+                    <li>개인정보 처리정지요구</li>
+                </ul>
+
+                <h3>7. 개인정보의 안전성 확보조치</h3>
+                <p>중소기업경영발전지원센터는 개인정보의 안전성 확보를 위해 다음과 같은 조치를 취하고 있습니다.</p>
+                <ul>
+                    <li>관리적 조치: 내부관리계획 수립, 전담조직 운영, 정기적 직원 교육 등</li>
+                    <li>기술적 조치: 개인정보처리시스템 등의 접근권한 관리, 접근통제시스템 설치, 개인정보의 암호화, 보안프로그램 설치</li>
+                    <li>물리적 조치: 전산실, 자료보관실 등의 접근통제</li>
+                </ul>
+
+                <h3>8. 개인정보보호책임자</h3>
+                <p>중소기업경영발전지원센터는 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 정보주체의 불만처리 및 피해구제 등을 위하여 아래와 같이 개인정보보호책임자를 지정하고 있습니다.</p>
+                <ul>
+                    <li>개인정보보호책임자: 여찬종</li>
+                    <!-- <li>연락처: 010-0000-0000</li> -->
+                    <li>이메일: smedsc6503@gmail.com</li>
+                </ul>
+
+                <h3>9. 개인정보처리방침의 변경</h3>
+                <p>이 개인정보처리방침은 시행일로부터 적용되며, 법령 및 방침에 따른 변경내용의 추가, 삭제 및 정정이 있는 경우에는 변경사항의 시행 7일 전부터 공지사항을 통하여 고지할 것입니다.</p>
+                <p>본 방침은 2025년 1월 1일부터 시행됩니다.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-close-modal" onclick="closePrivacyModal()">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Form state
+        let currentStep = 1;
+        const totalSteps = 4;
+        const formData = {
+            businessType: '',
+            fundingAmount: '',
+            companyName: '',
+            consultationTime: '',
+            name: '',
+            phone: '',
+            privacyAgreed: false
+        };
+
+        // Initialize progress bar
+        function initProgressBar() {
+            const progressBar = document.getElementById('progressBar');
+            progressBar.innerHTML = '';
+            
+            for (let i = 1; i <= totalSteps; i++) {
+                const step = document.createElement('div');
+                step.className = 'progress-step';
+                if (i < currentStep) {
+                    step.classList.add('completed');
+                    step.innerHTML = '<svg width="24" height="24" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>';
+                } else if (i === currentStep) {
+                    step.classList.add('active');
+                    step.textContent = i;
+                } else {
+                    step.textContent = i;
+                }
+                
+                progressBar.appendChild(step);
+                
+                if (i < totalSteps) {
+                    const line = document.createElement('div');
+                    line.className = 'progress-line';
+                    progressBar.appendChild(line);
+                }
+            }
+        }
+
+        // Show current step
+        function showStep(step) {
+            const steps = document.querySelectorAll('.form-step');
+            steps.forEach((s, index) => {
+                s.classList.remove('active');
+                if (parseInt(s.dataset.step) === step) {
+                    s.classList.add('active');
+                }
+            });
+            initProgressBar();
+        }
+
+        // Next step
+        function nextStep() {
+            if (currentStep < totalSteps + 1) {
+                currentStep++;
+                showStep(currentStep);
+            }
+        }
+
+        // Previous step
+        function previousStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                showStep(currentStep);
+            }
+        }
+
+        // Handle option selection
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('option-btn')) {
+                const field = e.target.dataset.field;
+                const value = e.target.dataset.value;
+                
+                // Update form data
+                formData[field] = value;
+                
+                // Update button styles
+                const buttons = e.target.parentElement.querySelectorAll('.option-btn');
+                buttons.forEach(btn => btn.classList.remove('selected'));
+                e.target.classList.add('selected');
+
+                // Enable the next button in the current step
+                const currentStepElement = e.target.closest('.form-step');
+                if (currentStepElement) {
+                    currentStepElement.querySelector('.next-btn').disabled = false;
+                }
+            }
+        });
+
+        document.getElementById('companyNameInput')?.addEventListener('input', function(e) {
+            formData.companyName = e.target.value;
+            updateSubmitButton();
+        });
+
+        // Handle form inputs
+        document.getElementById('nameInput')?.addEventListener('input', function(e) {
+            formData.name = e.target.value;
+            updateSubmitButton();
+        });
+
+        document.getElementById('phoneInput')?.addEventListener('input', function(e) {
+            formData.phone = e.target.value;
+            updateSubmitButton();
+        });
+
+        document.getElementById('phoneInput')?.addEventListener('input', function(e) {
+            const value = e.target.value.replace(/\D/g, ''); // 숫자 이외의 문자 제거
+            let formattedValue = '';
+            if (value.length > 3) {
+                formattedValue = value.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
+            }
+            e.target.value = formattedValue || value;
+        });
+
+        document.getElementById('privacyCheckbox')?.addEventListener('change', function(e) {
+            formData.privacyAgreed = e.target.checked;
+            updateSubmitButton();
+        });
+
+        // Update submit button state
+        function updateSubmitButton() {
+            const submitBtn = document.getElementById('submitBtn');
+            if (formData.name && formData.phone && formData.privacyAgreed) {
+                submitBtn.disabled = false;
+            } else {
+                submitBtn.disabled = true;
+            }
+        }
+
+        // Submit form
+        function submitForm() {
+            const submitBtn = document.getElementById('submitBtn');
+            if (formData.name && formData.phone && formData.privacyAgreed) {
+                // Disable button to prevent multiple submissions
+                submitBtn.disabled = true;
+                submitBtn.textContent = '전송 중...';
+
+                // ⚠️ 여기에 배포된 Google Apps Script URL을 입력하세요.
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbwRQQLJMI17JEf1ePLiVCHONicQ4_ePOsFiiC7f-_got_O3tvKvB4V4RGBgeyn30bCYpw/exec';
+                
+
+                // Add timestamp
+                const now = new Date();
+                const kstTime = new Date(now.getTime() + (9 * 60 * 60 * 1000)); // KST
+                formData.timestamp = kstTime.toISOString().replace('T', ' ').substring(0, 19);
+
+                fetch(scriptURL, {
+                    method: 'POST', // POST 방식으로 전송
+                    mode: 'no-cors', // CORS 정책 우회
+                    headers: { 
+                        'Content-Type': 'text/plain;charset=utf-8', // Content-Type을 text/plain으로 설정
+                    },
+                    body: JSON.stringify(formData)
+                })
+                .then(response => {
+                    console.log('Success!', response);
+                    currentStep = totalSteps + 1; // 성공 시 완료 화면으로 이동
+                    showStep(currentStep);
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    alert('오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
+                    submitBtn.disabled = false; // 오류 발생 시 버튼 다시 활성화
+                    submitBtn.textContent = '신청하기';
+                });
+            }
+        }
+
+        // Reset form
+        function resetForm() {
+            currentStep = 1;
+            formData.businessType = '';
+            formData.fundingAmount = '';
+            formData.consultationTime = '';
+            formData.companyName = '';
+            formData.name = '';
+            formData.phone = '';
+            formData.privacyAgreed = false;
+            
+            document.getElementById('companyNameInput').value = '';
+            document.getElementById('nameInput').value = '';
+            document.getElementById('phoneInput').value = '';
+            document.getElementById('privacyCheckbox').checked = false;
+            
+            document.querySelectorAll('.option-btn').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            
+            showStep(currentStep);
+        }
+
+        // Scroll to consultation
+        function scrollToConsultation() {
+            const section = document.getElementById('consultation-section');
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Privacy Modal Functions
+        function openPrivacyModal() {
+            const modal = document.getElementById('privacyModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closePrivacyModal() {
+            const modal = document.getElementById('privacyModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Close modal when clicking outside of it
+        document.getElementById('privacyModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePrivacyModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('privacyModal');
+                if (modal.classList.contains('active')) {
+                    closePrivacyModal();
+                }
+            }
+        });
+
+        // Count Animation Functions
+        function animateCount(element, target, duration = 2000) {
+            const start = 0;
+            const increment = target / (duration / 16); // 60fps
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                
+                // Format number with commas for large numbers
+                if (target >= 1000) {
+                    element.textContent = Math.floor(current).toLocaleString();
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 16);
+        }
+
+        // Intersection Observer for scroll-triggered animations
+        function initCountAnimations() {
+            const statItems = document.querySelectorAll('.stat-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const statItem = entry.target;
+                        const target = parseInt(statItem.dataset.target);
+                        const numberElement = statItem.querySelector('.number');
+                        
+                        // Add animation class
+                        statItem.classList.add('animate');
+                        
+                        // Start count animation
+                        animateCount(numberElement, target);
+                        
+                        // Stop observing this element
+                        observer.unobserve(statItem);
+                    }
+                });
+            }, {
+                threshold: 0.5, // Trigger when 50% of the element is visible
+                rootMargin: '0px 0px -100px 0px' // Start animation slightly before element is fully visible
+            });
+
+            // Start observing all stat items
+            statItems.forEach(item => {
+                observer.observe(item);
+            });
+        }
+
+        // Initialize on load
+        initProgressBar();
+        updateSubmitButton();
+        initCountAnimations();
+    </script>
 </body>
 </html>

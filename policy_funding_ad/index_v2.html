@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정책자금 광고 디자인</title>
+    <!-- Tailwind CSS CDN 로드 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 'Inter' 폰트 또는 기본 sans-serif 폰트 적용 */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* 추가적인 가시성을 위한 텍스트 그림자 (선택 사항) */
+        .text-shadow-custom {
+            text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+
+    <!-- 정사각형 광고 컨테이너 -->
+    <!-- max-w-lg (512px)로 크기 제한, aspect-square로 1:1 비율 유지 -->
+    <div
+        class="w-full max-w-lg aspect-square bg-gray-900 text-white p-8 flex flex-col justify-between shadow-2xl">
+
+        <!-- 상단 헤드라인 -->
+        <div class="text-center">
+            <span
+                class="inline-block bg-yellow-400 text-gray-900 text-2xl sm:text-3xl font-extrabold px-6 py-2 -rotate-3 transform shadow-lg">
+                !! 마감 임박 !!
+            </span>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mt-4 text-shadow-custom">
+                사장님!
+            </h1>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-yellow-300 text-shadow-custom">
+                정책자금
+            </h2>
+            <p class="text-xl sm:text-2xl mt-3 font-medium">
+                아직 신청 안 하셨나요?
+            </p>
+        </div>
+
+        <!-- 중간 혜택/문제점 -->
+        <div class="text-center my-4">
+            <p class="text-lg sm:text-xl font-bold border-2 border-dashed border-yellow-400 p-4 bg-gray-800">
+                <span class="text-yellow-400">"복잡한 서류? 자격 조건?"</span><br>
+                전문가가 대신 확인해 드립니다!
+            </p>
+        </div>
+
+        <!-- 하단 CTA (Call to Action) -->
+        <div class="text-center">
+            <div class="bg-white text-gray-900 p-4 transform scale-105 shadow-xl">
+                <span class="text-xl sm:text-2xl font-bold block">지금 바로 신청하세요!</span>
+                <span class="text-3xl sm:text-4xl font-extrabold text-blue-700 block mt-1">
+                    [무료 상담]
+                </span>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
