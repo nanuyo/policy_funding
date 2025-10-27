@@ -1665,7 +1665,7 @@
                 submitBtn.textContent = '전송 중...';
 
                 // ⚠️ 여기에 배포된 Google Apps Script URL을 입력하세요.
-                const scriptURL = 'https://script.google.com/macros/s/AKfycbxLEz4SZD2zHqiSFJCPFfMYchtV0Z1gUFHOZdWVKuF9boYILYyCVmeHKAyyVdCgJhGi/exec';
+                const scriptURL = 'https://script.google.com/macros/s/AKfycby8Scx74mxW9XW8udKUdNB4WSRiOQoIjmL8CJzPcqOT_ADBM3r6e9Cwy5bD_Cf1KDy9/exec';
                 
 
                 // Add timestamp
@@ -1813,10 +1813,32 @@
             });
         }
 
+        // 페이지 방문 기록을 추적하는 함수
+        function trackPageView() {
+            const scriptURL = 'https://script.google.com/macros/s/AKfycby8Scx74mxW9XW8udKUdNB4WSRiOQoIjmL8CJzPcqOT_ADBM3r6e9Cwy5bD_Cf1KDy9/exec';
+
+            const pageViewData = {
+                type: 'pageview', // 요청 유형을 '페이지뷰'로 지정
+                timestamp: new Date(new Date().getTime() + (9 * 60 * 60 * 1000)).toISOString().replace('T', ' ').substring(0, 19),
+                referralPath: getReferralInfo()
+            };
+
+            fetch(scriptURL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 
+                    'Content-Type': 'text/plain;charset=utf-8',
+                },
+                body: JSON.stringify(pageViewData)
+            })
+            .catch(error => console.error('Error tracking page view:', error.message));
+        }
+
         // Initialize on load
         initProgressBar();
         updateSubmitButton();
         initCountAnimations();
+        trackPageView(); // 페이지 로드 시 방문 기록 추적 함수 호출
     </script>
 </body>
 </html>
