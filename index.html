@@ -1300,11 +1300,12 @@
 
                     <!-- Step 2: Monthly Income -->
                     <div class="form-step" data-step="2">
-                        <h2 class="form-title">어느 정도의 자금이 필요하신가요?</h2>
+                        <h2 class="form-title">작년도 매출은 어느 정도이신가요?</h2>
                         <div class="options-grid">
-                            <button class="option-btn" data-field="fundingAmount" data-value="5천만원 이하">5천만원 이하</button>
-                            <button class="option-btn" data-field="fundingAmount" data-value="5천만원 - 1억원">5천만원 - 1억원</button>
-                            <button class="option-btn" data-field="fundingAmount" data-value="1억원 이상">1억원 이상</button>
+                            <button class="option-btn" data-field="lastYearSales" data-value="1억 미만">1억 미만</button>
+                            <button class="option-btn" data-field="lastYearSales" data-value="2억원대">2억원대</button>
+                            <button class="option-btn" data-field="lastYearSales" data-value="3억원대">3억원대</button>
+                            <button class="option-btn" data-field="lastYearSales" data-value="4억원대">4억원대</button>
                         </div>
                     </div>
                     
@@ -1326,6 +1327,7 @@
                         </h2>
                         <div style="max-width: 48rem; margin: 0 auto;">
                             <input type="text" class="form-input" id="companyNameInput" placeholder="업체명 (선택사항)">
+                            <input type="text" class="form-input" id="businessRegNumberInput" placeholder="사업자번호 입력 ('-' 없이)">
                             <input type="text" class="form-input" id="nameInput" placeholder="이름 입력">
                             <input type="tel" class="form-input" id="phoneInput" placeholder="연락처 입력 ('-' 없이)">
                             <div class="checkbox-container">
@@ -1517,15 +1519,17 @@
         // Form state
         let currentStep = 1;
         const totalSteps = 4;
-        const formData = {
+        const formData = { // Updated formData structure
             businessType: '',
             fundingAmount: '',
             companyName: '',
+            businessRegistrationNumber: '',
             consultationTime: '',
             name: '',
             phone: '',
             privacyAgreed: false
-        };
+        }; 
+        formData.lastYearSales = ''; // Add new field for last year's sales
 
         // Initialize progress bar
         function initProgressBar() {
@@ -1605,6 +1609,11 @@
 
         document.getElementById('companyNameInput')?.addEventListener('input', function(e) {
             formData.companyName = e.target.value;
+            updateSubmitButton();
+        });
+
+        document.getElementById('businessRegNumberInput')?.addEventListener('input', function(e) {
+            formData.businessRegistrationNumber = e.target.value;
             updateSubmitButton();
         });
 
@@ -1702,10 +1711,11 @@
         function resetForm() {
             currentStep = 1;
             formData.businessType = '';
-            formData.fundingAmount = '';
+            formData.lastYearSales = ''; // Reset new field
             formData.consultationTime = '';
             formData.companyName = '';
             formData.name = '';
+            formData.businessRegistrationNumber = '';
             formData.phone = '';
             formData.privacyAgreed = false;
             
@@ -1713,6 +1723,7 @@
             document.getElementById('nameInput').value = '';
             document.getElementById('phoneInput').value = '';
             document.getElementById('privacyCheckbox').checked = false;
+            document.getElementById('businessRegNumberInput').value = '';
             
             document.querySelectorAll('.option-btn').forEach(btn => {
                 btn.classList.remove('selected');
