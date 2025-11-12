@@ -1218,8 +1218,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
-                    <h4>최대 1억, 저금리</h4>
-                    <p>최대 1억 원 한도, 최저 연 2~3%대 금리로 자금을 확보할 수 있습니다.</p>
+                    <h4>최대 2억, 저금리</h4>
+                    <p>최대 2억 원 한도, 최저 연 2~3%대 금리로 자금을 확보할 수 있습니다.</p>
                 </div>
             </div>
         </div>
@@ -1261,7 +1261,7 @@
                 <div class="process-item">
                     <div class="process-number">5</div>
                     <h4 class="process-title">혁신 성장 자금</h4>
-                    <p class="process-desc">온라인/스마트 도입 기업, 최대 1억 원</p>
+                    <p class="process-desc">온라인/스마트 도입 기업, 최대 2억 원</p>
                 </div>
                 <div class="process-item">
                     <div class="process-number">6</div>
@@ -1326,7 +1326,8 @@
                             마지막 단계입니다! 상담받으실 정보를 알려주세요.
                         </h2>
                         <div style="max-width: 48rem; margin: 0 auto;">
-                            <input type="text" class="form-input" id="companyNameInput" placeholder="업체명 (선택사항)">
+                            <input type="text" class="form-input" id="companyNameInput" placeholder="업체명">
+                            <input type="text" class="form-input" id="regionInput" placeholder="지역 입력 (예: 서울 강남구)">
                             <input type="text" class="form-input" id="businessRegNumberInput" placeholder="사업자번호 입력 ('-' 없이)">
                             <input type="text" class="form-input" id="nameInput" placeholder="이름 입력">
                             <input type="tel" class="form-input" id="phoneInput" placeholder="연락처 입력 ('-' 없이)">
@@ -1523,6 +1524,7 @@
             businessType: '',
             fundingAmount: '',
             companyName: '',
+            region: '',
             businessRegistrationNumber: '',
             consultationTime: '',
             name: '',
@@ -1609,6 +1611,11 @@
 
         document.getElementById('companyNameInput')?.addEventListener('input', function(e) {
             formData.companyName = e.target.value;
+            updateSubmitButton();
+        });
+
+        document.getElementById('regionInput')?.addEventListener('input', function(e) {
+            formData.region = e.target.value;
             updateSubmitButton();
         });
 
@@ -1713,12 +1720,14 @@
             formData.businessType = '';
             formData.lastYearSales = ''; // Reset new field
             formData.consultationTime = '';
+            formData.region = '';
             formData.companyName = '';
             formData.name = '';
             formData.businessRegistrationNumber = '';
             formData.phone = '';
             formData.privacyAgreed = false;
             
+            document.getElementById('regionInput').value = '';
             document.getElementById('companyNameInput').value = '';
             document.getElementById('nameInput').value = '';
             document.getElementById('phoneInput').value = '';
