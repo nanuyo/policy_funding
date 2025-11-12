@@ -1328,7 +1328,7 @@
                         <div style="max-width: 48rem; margin: 0 auto;">
                             <input type="text" class="form-input" id="companyNameInput" placeholder="업체명">
                             <input type="text" class="form-input" id="regionInput" placeholder="지역 입력 (예: 서울 강남구)">
-                            <input type="text" class="form-input" id="businessRegNumberInput" placeholder="사업자번호 입력 ('-' 없이)">
+                            <input type="text" class="form-input" id="businessRegNumberInput" placeholder="사업자번호 입력">
                             <input type="text" class="form-input" id="nameInput" placeholder="이름 입력">
                             <input type="tel" class="form-input" id="phoneInput" placeholder="연락처 입력 ('-' 없이)">
                             <div class="checkbox-container">
@@ -1620,7 +1620,22 @@
         });
 
         document.getElementById('businessRegNumberInput')?.addEventListener('input', function(e) {
-            formData.businessRegistrationNumber = e.target.value;
+            let value = e.target.value.replace(/\D/g, '');
+            let formattedValue = '';
+
+            if (value.length > 10) {
+                value = value.slice(0, 10);
+            }
+
+            if (value.length > 5) {
+                formattedValue = `${value.slice(0, 3)}-${value.slice(3, 5)}-${value.slice(5)}`;
+            } else if (value.length > 3) {
+                formattedValue = `${value.slice(0, 3)}-${value.slice(3, 5)}`;
+            } else {
+                formattedValue = value;
+            }
+            e.target.value = formattedValue;
+            formData.businessRegistrationNumber = formattedValue;
             updateSubmitButton();
         });
 
